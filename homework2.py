@@ -1,18 +1,3 @@
-#!/bin/python3
-
-import math
-import os
-import random
-import re
-import sys
-
-#
-# Complete the 'alternatingCharacters' function below.
-#
-# The function is expected to return an INTEGER.
-# The function accepts STRING s as parameter.
-#
-
 def alternatingCharacters(s):
     deletions = 0
     for i in range(1, len(s)):
@@ -20,16 +5,25 @@ def alternatingCharacters(s):
             deletions += 1
     return deletions
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
-
-    q = int(input().strip())
-
-    for q_itr in range(q):
-        s = input()
-
+def run_tests():
+    test_cases = [
+        ("AAAA", 3),
+        ("BBBBB", 4),
+        ("ABABABAB", 0),
+        ("BABABA", 0),
+        ("AAABBB", 4),
+        ("A", 0),
+        ("", 0),
+        ("ABBA", 1),
+        ("ABABABAAB", 1),
+        ("AABBCC", 3)
+    ]
+    
+    for s, expected in test_cases:
         result = alternatingCharacters(s)
+        assert result == expected, f"Test failed for input {s}: expected {expected}, got {result}"
+    
+    print("All tests passed!")
 
-        fptr.write(str(result) + '\n')
-
-    fptr.close()
+if __name__ == '__main__':
+    run_tests()

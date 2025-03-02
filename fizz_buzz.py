@@ -1,4 +1,5 @@
-def fizz_buzz(x):
+x = int(input("input x : "))
+def fizzbuzz(x):
     if x % 3 == 0 and x % 5 == 0:
         return "FizzBuzz"
     elif x % 3 == 0:
@@ -6,8 +7,9 @@ def fizz_buzz(x):
     elif x % 5 == 0:
         return "Buzz"
     else:
-        return str(x)
+        return x
 
-if __name__ == '__main__':
-    for i in range(1, 101):
-        print(fizz_buzz(i))
+
+# เรียกใช้ฟังก์ชันและแสดงผลลัพธ์
+result = fizzbuzz(x)
+print(result)
